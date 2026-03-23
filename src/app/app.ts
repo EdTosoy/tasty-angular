@@ -1,11 +1,11 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { Header } from './shared/header/header';
 import { AppService } from './app.service';
+import { Header, Hero } from './shared';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [Header],
+  imports: [Header, Hero],
   templateUrl: './app.html',
 })
 export class App implements OnInit {
