@@ -1,3 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'tailwindcss';
+
+@import '@fontsource/poppins/400.css';
+@import '@fontsource/poppins/500.css';
+@import '@fontsource/poppins/700.css';
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-green: #069c54;
+  --color-dark-mode-green: #1d2521;
+  --color-dark-green: #048654;
+
+  --spacing-488px: 488px;
+  --spacing-550px: 550px;
+  --spacing-80: 80vh;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+app-root {
+  display: block;
+  width: 100%;
+}
+
+.app-container {
+  display: grid;
+  grid-template-columns: minmax(10px, 1fr) repeat(10, minmax(10px, 1fr)) minmax(10px, 1fr);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: minmax(1rem, 1fr) minmax(1rem, 1024px) minmax(1rem, 1fr);
+}

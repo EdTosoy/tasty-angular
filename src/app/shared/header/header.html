@@ -1,0 +1,71 @@
+<header
+  class="max-w-screen-2xl border-b border-gray-200 dark:border-gray-800 mx-4 sticky top-0 z-50"
+>
+  <!-- Mobile Menu Overlay -->
+  @if (appService.openMenu()) {
+    <div class="md:hidden">
+      <div
+        class="top-14 border-t border-b shadow-xl absolute w-full text-center p-6 bg-white dark:border-gray-800 dark:bg-dark-mode-green"
+      >
+        @for (item of nav; track item.id) {
+          <a [href]="'#' + item.id" (click)="handleMobileNavClick()">
+            <nav class="cursor-pointer my-4 hover:text-green transition-colors duration-200">
+              {{ item.name }}
+            </nav>
+          </a>
+        }
+      </div>
+    </div>
+  }
+
+  <!-- Main Header -->
+  <div
+    class="flex py-3 w-full md:py-7 max-w-5xl mx-auto justify-between font-medium bg-white dark:bg-dark-mode-green"
+  >
+    <!-- Logo -->
+    <div>
+      <a href="#" class="hover:text-green transition-colors duration-200"> Tasty </a>
+    </div>
+
+    <!-- Nav + Controls -->
+    <div class="flex gap-10 items-center">
+      <!-- Desktop Nav -->
+      @for (item of nav; track item.id) {
+        <nav class="text-base hidden md:block">
+          <a [href]="'#' + item.id" class="hover:text-green transition-colors duration-200">
+            {{ item.name }}
+          </a>
+        </nav>
+      }
+
+      <!-- Dark Mode Toggle -->
+      <button
+        class="cursor-pointer p-1 rounded hover:opacity-70 transition-opacity duration-200"
+        (click)="appService.toggleDarkMode()"
+        [attr.aria-label]="appService.darkMode() ? 'Switch to light mode' : 'Switch to dark mode'"
+      >
+        <lucide-icon
+          [img]="themeIcon()"
+          [size]="22"
+          [strokeWidth]="2"
+          [class.text-white] = "appService.darkMode()"
+          [class.text-current] = "!appService.darkMode()"
+        />
+      </button>
+
+      <!-- Mobile Hamburger -->
+      <button
+        class="md:hidden cursor-pointer p-1 rounded hover:opacity-70 transition-opacity duration-200"
+        (click)="appService.toggleMenu()"
+        aria-label="Toggle menu"
+      >
+        <lucide-icon
+          [img]="hamburgerIcon()"
+          [size]="22"
+          [strokeWidth]="2"
+          class="text-gray-500"
+        />
+      </button>
+    </div>
+  </div>
+</header>
