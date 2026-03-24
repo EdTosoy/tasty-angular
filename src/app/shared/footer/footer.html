@@ -1,0 +1,57 @@
+<section class="pt-36 pb-8 px-4" id="footer">
+  <div class="max-w-5xl mx-auto">
+    <div class="flex justify-between flex-wrap">
+      <div>
+        <h1 class="text-green text-xl font-semibold mb-4">Tasty Food</h1>
+        <p class="mb-4">Restaurant</p>
+        <div class="flex mb-4 gap-4">
+          <div class="grid place-content-center">
+            <lucide-icon
+              [img]="facebookIcon"
+              [size]="22"
+              [class.text-white]="appService.darkMode()"
+              [class.text-current]="!appService.darkMode()"
+            />
+          </div>
+          <div class="grid place-content-center">
+            <lucide-icon
+              [img]="instagramIcon"
+              [size]="22"
+              [class.text-white]="appService.darkMode()"
+              [class.text-current]="!appService.darkMode()"
+            />
+          </div>
+
+          <div class="grid place-content-center">
+            <lucide-icon
+              [img]="twitterIcon"
+              [size]="22"
+              [class.text-white]="appService.darkMode()"
+              [class.text-current]="!appService.darkMode()"
+            />
+          </div>
+        </div>
+      </div>
+      @for (item of footerLink; track item.title) {
+        <div class="mb-4">
+          <h1 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">
+            {{ item.title }}
+          </h1>
+          <p class="mb-2">
+            <a href="#">{{ item.sub1 }}</a>
+          </p>
+
+          <p class="mb-2">
+            <a href="#">{{ item.sub2 }}</a>
+          </p>
+          <p class="mb-2">
+            <a href="#">{{ item.sub3 }}</a>
+          </p>
+          <p class="mb-2">
+            <a href="#">{{ item.sub4 }}</a>
+          </p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

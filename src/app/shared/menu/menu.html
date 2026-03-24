@@ -1,0 +1,39 @@
+<section class="pt-36 pb-8" id="menu">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center">
+      <h2 class="text-green text-lg font-semibold mb-8">Menu</h2>
+      <h1
+        class="font-bold text-gray-800 dark:text-white text-2xl md:text-4xl md:font-semibold mb-8"
+      >
+        Our Best Seller Meals
+      </h1>
+    </div>
+    <div class="flex flex-wrap lg:flex-nowrap">
+      @for (item of menu; track item.name) {
+        <div class="p-8 max-w-md mx-auto relative">
+          <div class="flex justify-center">
+            <div class="w-32 h-32 relative">
+              <img ngSrc="{{ item.image }}" fill alt="{{ item.name }}" />
+            </div>
+          </div>
+
+          <h2
+            class="font-bold text-gray-800 dark:text-white text-2xl md:text-xl md:font-semibold my-2"
+          >
+            {{ item.name }}
+          </h2>
+
+          <p class="py-1">
+            {{ item.text }}
+          </p>
+          <p class="py-1 font-semibold dark:text-white">${{ item.price }}</p>
+          <button
+            class="bottom-0 right-0 absolute px-3 py-3.5 bg-green rounded-tl-xl rounded-br-xl text-white grid place-content-center cursor-pointer hover:bg-dark-green"
+          >
+            <lucide-icon [img]="cartIcon" [size]="22" [strokeWidth]="2" />
+          </button>
+        </div>
+      }
+    </div>
+  </div>
+</section>

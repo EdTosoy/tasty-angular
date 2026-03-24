@@ -1,0 +1,29 @@
+<section class="pt-36 pb-8" id="services">
+  <div class="max-w-5xl mx-auto text-center">
+    <h2 class="text-green text-lg font-semibold mb-8">Offering</h2>
+    <h1 class="font-bold text-gray-800 dark:text-white text-2xl md:text-4xl md:font-semibold mb-8">
+      Our amazing services
+    </h1>
+    <div class="flex flex-wrap lg:flex-nowrap">
+      @for (item of services; track item.name) {
+        <div class="p-8 max-w-md mx-auto">
+          <div class="flex justify-center">
+            <div class="w-16 h-16 relative">
+              <img ngSrc="{{ item.icon }}" fill alt="{{ item.name }}" />
+            </div>
+          </div>
+
+          <h2
+            class="font-bold text-gray-800 dark:text-white text-2xl md:text-xl md:font-semibold my-2"
+          >
+            {{ item.name }}
+          </h2>
+
+          <p class="p-2">
+            {{ item.text }}
+          </p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
