@@ -11,7 +11,6 @@ interface NavItem {
   selector: 'app-header',
   imports: [LucideAngularModule],
   templateUrl: './header.html',
-  styleUrl: './header.css',
 })
 export class Header {
   appService = inject(AppService);
